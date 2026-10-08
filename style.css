@@ -1,0 +1,1456 @@
+/* =========================================
+   SILVORA — SMART LUXURY HOTEL
+   Theme: Dark Green + Champagne Gold
+========================================= */
+
+/* ---------- 1. GLOBAL SETTINGS ---------- */
+
+:root {
+    --green: #123d30;
+    --green-dark: #09271f;
+    --green-light: #1b4b3b;
+    --gold: #c8a65d;
+    --gold-light: #e8d6a0;
+    --cream: #f6f2e9;
+    --white: #ffffff;
+    --text: #26352e;
+    --muted: #777d75;
+    --border: #ded8c9;
+    --shadow: 0 12px 35px rgba(9, 39, 31, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+.section {
+    padding: 85px 8%;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.2;
+    color: var(--green-dark);
+}
+
+h2 span,
+h1 span {
+    color: var(--gold);
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+/* ---------- 2. BUTTONS ---------- */
+
+.btn,
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 12px 25px;
+    background: var(--gold);
+    color: var(--green-dark);
+    border: 1px solid var(--gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    transition: 0.25s ease;
+}
+
+.btn:hover,
+.nav-btn:hover {
+    background: var(--green);
+    color: var(--gold-light);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: var(--green-dark);
+}
+
+.btn-light {
+    background: var(--cream);
+    color: var(--green-dark);
+    border-color: var(--cream);
+}
+
+.text-btn {
+    background: transparent;
+    color: var(--green);
+    border: none;
+    border-bottom: 1px solid var(--gold);
+    padding: 5px 0;
+    font-weight: 700;
+}
+
+.text-btn:hover {
+    color: #9c792e;
+}
+
+/* ---------- 3. WELCOME POPUP ---------- */
+
+.welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(5, 25, 19, 0.96);
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-box {
+    width: 100%;
+    max-width: 520px;
+    padding: 55px 30px;
+    text-align: center;
+    color: var(--white);
+    border: 1px solid var(--gold);
+}
+
+.welcome-box h1 {
+    color: var(--gold);
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: 8px;
+    margin-bottom: 12px;
+}
+
+.welcome-box p:not(.eyebrow) {
+    margin-bottom: 28px;
+    color: #e5e4da;
+}
+
+/* ---------- 4. HEADER / NAVIGATION ---------- */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 16px 6%;
+    background: var(--green-dark);
+    border-bottom: 1px solid rgba(200, 166, 93, 0.55);
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
+
+.nav a {
+    color: #f0eee6;
+    font-size: 0.85rem;
+    transition: color 0.25s ease;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+.nav-btn {
+    min-height: 42px;
+    padding: 9px 17px;
+    white-space: nowrap;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 12px;
+    font-size: 1.4rem;
+}
+
+/* ---------- 5. HERO SECTION ---------- */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 650px;
+    padding: 100px 8%;
+    color: var(--white);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 29, 22, 0.94),
+            rgba(5, 29, 22, 0.65),
+            rgba(5, 29, 22, 0.25)
+        ),
+        url("https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1800&q=85")
+        center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.12;
+    margin-bottom: 25px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    max-width: 540px;
+    color: #e8e8df;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-label {
+    position: absolute;
+    right: 6%;
+    bottom: 25px;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+}
+
+/* ---------- 6. INTRODUCTION ---------- */
+
+.intro {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro h2 {
+    margin-bottom: 22px;
+}
+
+.intro-text {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--muted);
+}
+
+/* ---------- 7. ROOMS & SUITES ---------- */
+
+.rooms-section {
+    background: #eee9dd;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.section-heading > p {
+    color: var(--muted);
+}
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.room-card {
+    overflow: hidden;
+    background: var(--white);
+    border-bottom: 2px solid var(--gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.room-card img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 24px;
+}
+
+.room-type {
+    color: #9c792e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.room-info h3 {
+    color: var(--green-dark);
+    font-size: 1.65rem;
+    margin-bottom: 10px;
+}
+
+.room-info > p:not(.room-type) {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.room-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.room-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.room-bottom strong {
+    color: var(--green);
+    font-size: 1.15rem;
+}
+
+/* ---------- 8. EXPERIENCES ---------- */
+
+.experiences {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 65px;
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+.experience-content h2 {
+    color: var(--white);
+    margin-bottom: 24px;
+}
+
+.experience-content > p:not(.eyebrow) {
+    color: #d3ddd6;
+    margin-bottom: 28px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.service-card {
+    padding: 25px 22px;
+    border: 1px solid rgba(200, 166, 93, 0.5);
+    transition: background 0.3s ease;
+}
+
+.service-card:hover {
+    background: var(--green-light);
+}
+
+.service-card > span {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.service-card h3 {
+    color: var(--gold-light);
+    font-size: 1.3rem;
+    margin: 12px 0;
+}
+
+.service-card p {
+    color: #d3ddd6;
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+/* =========================================================
+   SILVORA EXPERIENCE
+   IMPORTANT:
+   No gold outline / tilted decorative lines around the
+   "THE SILVORA EXPERIENCE" text area.
+========================================================= */
+
+.silvora-experience,
+.experience-section {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Make sure no pseudo-element creates decorative lines
+   around the experience text section. */
+
+.silvora-experience::before,
+.silvora-experience::after,
+.experience-section::before,
+.experience-section::after {
+    content: none !important;
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ---------- 9. MEMBERSHIP ---------- */
+
+.membership {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: var(--gold);
+}
+
+.membership h2 {
+    margin-bottom: 18px;
+    color: var(--green-dark);
+}
+
+.membership p:not(.eyebrow) {
+    color: #35473c;
+}
+
+/* ---------- 10. RESERVATION + MY RESERVATIONS ---------- */
+
+.booking-section,
+.lookup-section {
+    position: relative;
+    margin: 65px 8%;
+    padding: 45px;
+    background: var(--green-dark);
+    color: var(--white);
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(9, 39, 31, 0.08);
+}
+
+/* Decorative golden lines ONLY around the reservation sections,
+   not around the SILVORA EXPERIENCE text. */
+
+.booking-section::before,
+.lookup-section::before {
+    content: "";
+    position: absolute;
+    top: -17px;
+    left: 8%;
+    width: 84%;
+    height: 7px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid rgba(200, 166, 93, 0.65);
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+.booking-section::after,
+.lookup-section::after {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 8%;
+    width: 84%;
+    height: 7px;
+    border-top: 1px solid rgba(200, 166, 93, 0.65);
+    border-bottom: 1px solid var(--gold);
+    transform: skewX(25deg);
+    pointer-events: none;
+}
+
+/* Section headings */
+
+.booking-heading {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.booking-heading h2 {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.booking-heading > p:not(.eyebrow) {
+    color: #d5dfd8;
+}
+
+/* Open form layout */
+
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 35px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.form-group label {
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+/* Reservation inputs */
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    color: var(--white);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(200, 166, 93, 0.7);
+    border-radius: 0;
+    outline: none;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+    color: #c4d0c8;
+    opacity: 1;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 2px 0 rgba(200, 166, 93, 0.15);
+}
+
+/* Dropdown option colors */
+
+.booking-form select option {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+/* Estimated total */
+
+.booking-total {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 22px 0;
+    border-top: 1px solid rgba(200, 166, 93, 0.6);
+    border-bottom: 1px solid rgba(200, 166, 93, 0.6);
+}
+
+.booking-total span {
+    color: #d7dfd8;
+    font-size: 0.9rem;
+}
+
+.booking-total strong {
+    color: var(--gold-light);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+
+.booking-total small {
+    color: #c4d0c8;
+}
+
+/* Buttons inside booking forms */
+
+.booking-form .submit-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+    min-width: 220px;
+    margin-top: 5px;
+}
+
+.form-note {
+    grid-column: 1 / -1;
+    color: #c4d0c8;
+    font-size: 0.8rem;
+    margin: -12px 0 0;
+}
+
+/* ---------- 11. MY RESERVATIONS INPUT COLORS ---------- */
+
+#lookupForm input,
+#lookupForm select,
+#lookupForm textarea {
+    background-color: var(--green);
+    color: var(--white);
+    border: 1px solid var(--gold);
+    border-radius: 3px;
+    caret-color: var(--gold-light);
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#lookupForm input::placeholder,
+#lookupForm textarea::placeholder {
+    color: #d6e0d9;
+    opacity: 1;
+}
+
+#lookupForm input:focus,
+#lookupForm select:focus,
+#lookupForm textarea:focus {
+    background-color: var(--gold);
+    color: var(--green-dark);
+    border-color: var(--gold-light);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(200, 166, 93, 0.25);
+}
+
+#lookupForm input:focus::placeholder,
+#lookupForm textarea:focus::placeholder {
+    color: #405548;
+}
+
+#lookupForm select option {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+/* Find My Reservations button */
+
+#lookupForm .submit-btn {
+    background: var(--gold);
+    color: var(--green-dark);
+    border: 1px solid var(--gold);
+}
+
+#lookupForm .submit-btn:hover {
+    background: transparent;
+    color: var(--gold-light);
+}
+
+/* ---------- 12. BOOKING / LOOKUP MESSAGES ---------- */
+
+.booking-message {
+    max-width: 950px;
+    margin: 22px auto 0;
+    color: #f0eee6;
+    overflow-wrap: anywhere;
+}
+
+.booking-message:empty {
+    display: none;
+}
+
+.booking-message.success {
+    padding: 18px;
+    border-left: 3px solid var(--gold);
+    background: rgba(200, 166, 93, 0.09);
+}
+
+.booking-message.error {
+    padding: 15px;
+    border-left: 3px solid #e58a7e;
+    background: rgba(229, 138, 126, 0.1);
+    color: #ffd7d1;
+}
+
+.booking-message h3 {
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+/* ---------- 13. RESERVATION RESULTS ---------- */
+
+.reservations-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.reservation-card,
+.reservation-item,
+.booking-card {
+    min-width: 0;
+    padding: 22px;
+    color: var(--white);
+    background: var(--green);
+    border: 1px solid rgba(200, 166, 93, 0.7);
+    overflow-wrap: anywhere;
+}
+
+.reservation-card h3,
+.reservation-item h3,
+.booking-card h3 {
+    color: var(--gold-light);
+    margin-bottom: 12px;
+}
+
+.reservation-card p,
+.reservation-item p,
+.booking-card p {
+    margin-bottom: 8px;
+    color: #e1e7e2;
+}
+
+.reservation-card strong,
+.reservation-item strong,
+.booking-card strong {
+    color: var(--gold-light);
+}
+
+/* ---------- DELETE BUTTON ---------- */
+
+.delete-booking-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 9px 17px;
+    background: transparent;
+    color: #ffd7d1;
+    border: 1px solid #d96b5f;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.delete-booking-btn:hover {
+    background: #d96b5f;
+    color: #ffffff;
+    border-color: #d96b5f;
+    transform: translateY(-2px);
+}
+
+.delete-booking-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+/* ---------- 14. CONTACT SECTION ---------- */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    background: #eee9dd;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    padding-left: 30px;
+    border-left: 1px solid var(--gold);
+}
+
+.contact-details p {
+    margin-bottom: 20px;
+}
+
+.contact-details strong {
+    color: var(--green);
+}
+
+/* ---------- 15. FOOTER ---------- */
+
+.footer {
+    padding: 35px 8%;
+    text-align: center;
+    background: var(--green-dark);
+    color: #d5dfd8;
+    border-top: 1px solid var(--gold);
+}
+
+.footer .logo {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 0.9rem;
+}
+
+.footer .copyright {
+    margin: 15px 0 0;
+    color: #aebdb3;
+    font-size: 0.78rem;
+}
+
+/* ---------- 16. SCROLLBAR ---------- */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--green-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+}
+
+/* ==========================================
+   SILVORA — RESERVATION RESULT CARD
+   Green by default, Gold on hover
+========================================== */
+
+#myReservationsList .reservation-card,
+#myReservationsList .reservation-item,
+#myReservationsList .booking-card,
+#myReservationsList article,
+#myReservationsList > div {
+    background-color: #123D30;
+    color: #FFFFFF;
+    border: 1px solid #C8A65D;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 18px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+#myReservationsList .reservation-card h3,
+#myReservationsList .reservation-item h3,
+#myReservationsList .booking-card h3,
+#myReservationsList article h3,
+#myReservationsList > div h3 {
+    color: #E8D6A0;
+    transition: color 0.3s ease;
+}
+
+#myReservationsList .reservation-card p,
+#myReservationsList .reservation-item p,
+#myReservationsList .booking-card p,
+#myReservationsList article p,
+#myReservationsList > div p {
+    color: #FFFFFF;
+    transition: color 0.3s ease;
+}
+
+#myReservationsList strong,
+#myReservationsList b {
+    color: #E8D6A0;
+    transition: color 0.3s ease;
+}
+
+/* Hover: entire reservation card turns gold */
+
+#myReservationsList .reservation-card:hover,
+#myReservationsList .reservation-item:hover,
+#myReservationsList .booking-card:hover,
+#myReservationsList article:hover,
+#myReservationsList > div:hover {
+    background-color: #C8A65D;
+    color: #123D30;
+    border-color: #E8D6A0;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    transform: translateY(-3px);
+}
+
+#myReservationsList .reservation-card:hover h3,
+#myReservationsList .reservation-item:hover h3,
+#myReservationsList .booking-card:hover h3,
+#myReservationsList article:hover h3,
+#myReservationsList > div:hover h3 {
+    color: #09271F;
+}
+
+#myReservationsList .reservation-card:hover p,
+#myReservationsList .reservation-item:hover p,
+#myReservationsList .booking-card:hover p,
+#myReservationsList article:hover p,
+#myReservationsList > div:hover p {
+    color: #123D30;
+}
+
+#myReservationsList .reservation-card:hover strong,
+#myReservationsList .reservation-item:hover strong,
+#myReservationsList .booking-card:hover strong,
+#myReservationsList article:hover strong,
+#myReservationsList > div:hover strong,
+#myReservationsList .reservation-card:hover b,
+#myReservationsList .reservation-item:hover b,
+#myReservationsList .booking-card:hover b,
+#myReservationsList article:hover b,
+#myReservationsList > div:hover b {
+    color: #09271F;
+}
+
+/* Keep delete button visible and readable on reservation-card hover */
+
+#myReservationsList .delete-booking-btn {
+    position: relative;
+    z-index: 2;
+}
+
+#myReservationsList .reservation-card:hover .delete-booking-btn,
+#myReservationsList .reservation-item:hover .delete-booking-btn,
+#myReservationsList .booking-card:hover .delete-booking-btn,
+#myReservationsList article:hover .delete-booking-btn,
+#myReservationsList > div:hover .delete-booking-btn {
+    background: #09271F;
+    color: #ffffff;
+    border-color: #09271F;
+}
+
+/* ---------- 17. RESPONSIVE TABLET ---------- */
+
+@media (max-width: 1050px) {
+    .header {
+        gap: 15px;
+        padding: 15px 4%;
+    }
+
+    .nav {
+        gap: 13px;
+    }
+
+    .nav a {
+        font-size: 0.78rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .section {
+        padding: 70px 5%;
+    }
+
+    .booking-section,
+    .lookup-section {
+        margin: 50px 5%;
+        padding: 35px;
+    }
+
+    .room-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .experiences {
+        gap: 35px;
+    }
+}
+
+/* ---------- 18. RESPONSIVE MOBILE ---------- */
+
+@media (max-width: 760px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 14px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .nav {
+        display: none;
+        order: 3;
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+        border-top: 1px solid rgba(200, 166, 93, 0.4);
+    }
+
+    .nav.nav-open {
+        display: flex;
+    }
+
+    .nav a {
+        padding: 11px 4px;
+        font-size: 0.9rem;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        min-height: 560px;
+        padding: 75px 6%;
+        background-position: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.6rem, 10vw, 4rem);
+    }
+
+    .hero-label {
+        left: 6%;
+        right: auto;
+        font-size: 0.65rem;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .room-card img {
+        height: 250px;
+    }
+
+    .experiences {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .membership {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .booking-section,
+    .lookup-section {
+        margin: 35px 4%;
+        padding: 28px 20px;
+    }
+
+    .booking-section::before,
+    .lookup-section::before {
+        left: 5%;
+        width: 90%;
+        top: -14px;
+    }
+
+    .booking-section::after,
+    .lookup-section::after {
+        left: 5%;
+        width: 90%;
+        bottom: -14px;
+    }
+
+    .booking-form {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .booking-total,
+    .booking-form .submit-btn,
+    .form-note {
+        grid-column: 1;
+    }
+
+    .booking-form .submit-btn {
+        width: 100%;
+    }
+
+    .reservations-list {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .contact-details {
+        padding-left: 18px;
+    }
+}
+
+/* ---------- 19. SMALL MOBILE ---------- */
+
+@media (max-width: 420px) {
+    .logo {
+        font-size: 1.35rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-section,
+    .lookup-section {
+        padding: 24px 16px;
+    }
+
+    .booking-heading h2 {
+        font-size: 2rem;
+    }
+
+    .room-info {
+        padding: 20px;
+    }
+
+    .room-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .welcome-box h1 {
+        letter-spacing: 4px;
+    }
+
+    .booking-section::before,
+    .lookup-section::before,
+    .booking-section::after,
+    .lookup-section::after {
+        display: none;
+    }
+}
+/* =========================================
+   RESERVATION SECTION — TILTED GOLD LINES
+   ONLY FOR "RESERVE YOUR STAY"
+========================================= */
+
+.booking-section {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Tilted golden decoration above the green box */
+.booking-section::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 7%;
+    right: 7%;
+    height: 20px;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            172deg,
+            transparent 0%,
+            transparent 35%,
+            #c8a65d 36%,
+            #c8a65d 39%,
+            transparent 40%,
+            transparent 58%,
+            #e8d6a0 59%,
+            #e8d6a0 62%,
+            transparent 63%,
+            transparent 100%
+        );
+}
+
+/* Tilted golden decoration below the green box */
+.booking-section::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 7%;
+    right: 7%;
+    height: 20px;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            8deg,
+            transparent 0%,
+            transparent 35%,
+            #c8a65d 36%,
+            #c8a65d 39%,
+            transparent 40%,
+            transparent 58%,
+            #e8d6a0 59%,
+            #e8d6a0 62%,
+            transparent 63%,
+            transparent 100%
+        );
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .booking-section::before,
+    .booking-section::after {
+        left: 5%;
+        right: 5%;
+        height: 16px;
+    }
+
+    .booking-section::before {
+        top: -23px;
+    }
+
+    .booking-section::after {
+        bottom: -23px;
+    }
+}
+/* =========================================
+   SMALL THICK GOLD RECTANGLE
+   EXPERIENCE TEXT ONLY
+========================================= */
+
+.silvora-experience .experience-copy {
+    border: none;
+    padding: 0;
+}
+
+.silvora-experience .experience-copy > .experience-kicker,
+.silvora-experience .experience-copy > .experience-title,
+.silvora-experience .experience-copy > .experience-description {
+    border-left: 5px solid #b18a3f;
+    border-right: 5px solid #b18a3f;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.silvora-experience .experience-copy > .experience-kicker {
+    border-top: 5px solid #b18a3f;
+    padding-top: 25px;
+}
+
+.silvora-experience .experience-copy > .experience-description {
+    border-bottom: 5px solid #b18a3f;
+    padding-bottom: 25px;
+}
+/* =========================
+   CATERING
+========================= */
+
+.catering-section {
+  margin-top: 30px;
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+}
+
+.catering-heading {
+  margin-bottom: 20px;
+}
+
+.catering-heading h3 {
+  margin: 6px 0;
+}
+
+.catering-heading p {
+  margin-bottom: 8px;
+}
+
+.catering-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.catering-card {
+  display: block;
+  cursor: pointer;
+}
+
+.catering-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.catering-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  transition: 0.2s ease;
+}
+
+.catering-card-content strong {
+  font-size: 17px;
+}
+
+.catering-card-content span {
+  font-weight: 600;
+}
+
+.catering-card-content small {
+  opacity: 0.7;
+}
+
+.catering-card input:checked
+  + .catering-card-content {
+  border-color: currentColor;
+  transform: translateY(-2px);
+}
+
+.catering-summary {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.booking-total {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reservation-catering {
+  margin: 15px 0;
+  padding: 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.reservation-catering p {
+  margin: 7px 0;
+}
+
+@media (max-width: 700px) {
+
+  .catering-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catering-section {
+    padding: 18px;
+  }
+
+}

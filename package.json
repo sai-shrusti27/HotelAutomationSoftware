@@ -1,0 +1,15 @@
+
+{
+  "name": "silvora-smart-luxury-hotel",
+  "version": "1.0.0",
+  "description": "SILVORA hotel reservation website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.2.1"
+  }
+}

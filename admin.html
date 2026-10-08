@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>SILVORA — Admin Dashboard</title>
+
+  <link
+    rel="stylesheet"
+    href="/admin.css"
+  >
+
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       LOGIN
+  ====================================================== -->
+
+  <div
+    id="adminLogin"
+    class="admin-login"
+  >
+
+    <div class="login-card">
+
+      <div class="login-logo">
+        SILV<span>O</span>RA
+      </div>
+
+      <p class="login-eyebrow">
+        HOTEL ADMINISTRATION
+      </p>
+
+      <h1>
+        Welcome Back
+      </h1>
+
+      <p class="login-description">
+        Sign in to manage the SILVORA hotel.
+      </p>
+
+
+      <form id="loginForm">
+
+        <div class="input-group">
+
+          <label for="adminUsername">
+            Username
+          </label>
+
+          <input
+            id="adminUsername"
+            type="text"
+            autocomplete="username"
+            required
+          >
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="adminPassword">
+            Password
+          </label>
+
+          <input
+            id="adminPassword"
+            type="password"
+            autocomplete="current-password"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="gold-button login-button"
+        >
+          Sign In
+        </button>
+
+      </form>
+
+
+      <div
+        id="loginMessage"
+        class="login-message"
+      ></div>
+
+
+      <a
+        href="/"
+        class="back-home"
+      >
+        ← Back to SILVORA
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       DASHBOARD
+  ====================================================== -->
+
+  <div
+    id="adminApp"
+    class="admin-app hidden"
+  >
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-brand">
+
+        <div class="sidebar-logo">
+          SILV<span>O</span>RA
+        </div>
+
+        <small>
+          ADMINISTRATION
+        </small>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <button
+          class="sidebar-link active"
+          data-section="dashboard"
+        >
+          <span>01</span>
+          Dashboard
+        </button>
+
+
+        <button
+          class="sidebar-link"
+          data-section="bookings"
+        >
+          <span>02</span>
+          Reservations
+        </button>
+
+
+        <button
+          class="sidebar-link"
+          data-section="rooms"
+        >
+          <span>03</span>
+          Rooms
+        </button>
+
+
+        <button
+          class="sidebar-link"
+          data-section="memberships"
+        >
+          <span>04</span>
+          Memberships
+        </button>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a
+          href="/"
+          class="sidebar-home"
+        >
+          View Website
+        </a>
+
+
+        <button
+          id="logoutButton"
+          class="logout-button"
+        >
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+
+      <!-- TOPBAR -->
+
+      <header class="admin-topbar">
+
+        <div>
+
+          <p class="topbar-eyebrow">
+            SILVORA HOTEL
+          </p>
+
+          <h1 id="pageTitle">
+            Dashboard
+          </h1>
+
+        </div>
+
+
+        <div class="admin-user">
+
+          <span class="status-dot"></span>
+
+          <span id="adminUsernameDisplay">
+            Admin
+          </span>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- =================================================
+           DASHBOARD
+      ================================================== -->
+
+      <section
+        id="dashboardSection"
+        class="admin-section active"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <p class="eyebrow">
+              OVERVIEW
+            </p>
+
+            <h2>
+              Hotel at a glance
+            </h2>
+
+          </div>
+
+
+          <button
+            id="refreshDashboard"
+            class="outline-button"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+
+          <div class="stat-card">
+
+            <span>
+              Total Reservations
+            </span>
+
+            <strong id="statTotalBookings">
+              0
+            </strong>
+
+            <small>
+              All bookings
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Confirmed
+            </span>
+
+            <strong id="statConfirmed">
+              0
+            </strong>
+
+            <small>
+              Active reservations
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Revenue
+            </span>
+
+            <strong id="statRevenue">
+              ₹0
+            </strong>
+
+            <small>
+              Confirmed + completed
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Occupied Rooms
+            </span>
+
+            <strong id="statOccupied">
+              0
+            </strong>
+
+            <small>
+              Today
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Available Rooms
+            </span>
+
+            <strong id="statAvailable">
+              0
+            </strong>
+
+            <small>
+              Ready to sell
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Maintenance
+            </span>
+
+            <strong id="statMaintenance">
+              0
+            </strong>
+
+            <small>
+              Rooms unavailable
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Today's Check-ins
+            </span>
+
+            <strong id="statCheckIns">
+              0
+            </strong>
+
+            <small>
+              Arrivals
+            </small>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>
+              Today's Check-outs
+            </span>
+
+            <strong id="statCheckOuts">
+              0
+            </strong>
+
+            <small>
+              Departures
+            </small>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="dashboard-columns">
+
+
+          <div class="panel">
+
+            <div class="panel-header">
+
+              <div>
+
+                <p class="eyebrow">
+                  LATEST
+                </p>
+
+                <h3>
+                  Recent reservations
+                </h3>
+
+              </div>
+
+
+              <button
+                class="text-action"
+                data-go="bookings"
+              >
+                View all →
+              </button>
+
+            </div>
+
+
+            <div
+              id="recentBookings"
+              class="recent-list"
+            ></div>
+
+          </div>
+
+
+
+          <div class="panel">
+
+            <div class="panel-header">
+
+              <div>
+
+                <p class="eyebrow">
+                  MEMBERS
+                </p>
+
+                <h3>
+                  Membership overview
+                </h3>
+
+              </div>
+
+            </div>
+
+
+            <div class="membership-overview">
+
+              <div>
+
+                <span>
+                  Members
+                </span>
+
+                <strong id="statMembers">
+                  0
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  Points in circulation
+                </span>
+
+                <strong id="statPoints">
+                  0
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <button
+              class="gold-button full-button"
+              data-go="memberships"
+            >
+              Manage Memberships
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           BOOKINGS
+      ================================================== -->
+
+      <section
+        id="bookingsSection"
+        class="admin-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <p class="eyebrow">
+              RESERVATIONS
+            </p>
+
+            <h2>
+              Manage stays
+            </h2>
+
+          </div>
+
+
+          <button
+            id="refreshBookings"
+            class="outline-button"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <div class="toolbar">
+
+          <input
+            id="bookingSearch"
+            type="search"
+            placeholder="Search guest, email, booking or room..."
+          >
+
+
+          <select id="bookingStatusFilter">
+
+            <option value="all">
+              All statuses
+            </option>
+
+            <option value="Confirmed">
+              Confirmed
+            </option>
+
+            <option value="Completed">
+              Completed
+            </option>
+
+            <option value="Cancelled">
+              Cancelled
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="panel">
+
+          <div
+            id="bookingsTable"
+            class="table-wrapper"
+          ></div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           ROOMS
+      ================================================== -->
+
+      <section
+        id="roomsSection"
+        class="admin-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <p class="eyebrow">
+              ACCOMMODATION
+            </p>
+
+            <h2>
+              Room management
+            </h2>
+
+          </div>
+
+
+          <button
+            id="refreshRooms"
+            class="outline-button"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <div
+          id="roomsGrid"
+          class="rooms-admin-grid"
+        ></div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           MEMBERSHIPS
+      ================================================== -->
+
+      <section
+        id="membershipsSection"
+        class="admin-section"
+      >
+
+        <div class="section-intro">
+
+          <div>
+
+            <p class="eyebrow">
+              LOYALTY
+            </p>
+
+            <h2>
+              Membership management
+            </h2>
+
+          </div>
+
+
+          <button
+            id="refreshMemberships"
+            class="outline-button"
+          >
+            ↻ Refresh
+          </button>
+
+        </div>
+
+
+        <div class="toolbar">
+
+          <input
+            id="membershipSearch"
+            type="search"
+            placeholder="Search member or email..."
+          >
+
+        </div>
+
+
+        <div class="panel">
+
+          <div
+            id="membershipsTable"
+            class="table-wrapper"
+          ></div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+
+  <!-- TOAST -->
+
+  <div
+    id="adminToast"
+    class="admin-toast"
+  ></div>
+
+
+  <script src="/admin.js"></script>
+
+</body>
+
+</html>
